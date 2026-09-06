@@ -1,0 +1,20 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: todo_sqlserver
+    ports:
+      - "3306:3306"
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=${MSSQL_SA_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - todo_net
+
+networks:
+  todo_net:
+    driver: bridge
+
+volumes:
+  mysql_data:
