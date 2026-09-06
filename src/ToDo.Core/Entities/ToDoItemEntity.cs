@@ -9,7 +9,7 @@ namespace ToDo.Core.Entities {
         public string Title { get; private set; } = string.Empty;
         public string? Description { get; private set; }
         public string? Status { get; set; }
-        public string? Priotity { get; private set; }
+        public string? Priority { get; private set; }
         public bool IsCompleted { get; private set; } = false;
         public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
         public DateTime? DeadlineAt { get; private set; }

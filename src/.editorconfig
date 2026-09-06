@@ -22,3 +22,6 @@ csharp_new_line_before_else = false
 # Garante o mesmo comportamento para blocos try/catch/finally: } catch {
 csharp_new_line_before_catch = false
 csharp_new_line_before_finally = false
+
+# CS8600: Conversão de literal nula ou possível valor nulo em tipo não anulável.
+dotnet_diagnostic.CS8600.severity = none
