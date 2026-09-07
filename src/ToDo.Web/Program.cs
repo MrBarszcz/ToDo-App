@@ -1,4 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using ToDo.Core.Interfaces;
+using ToDo.Infrastructure.Repositories;
+using ToDo.Infrastructure.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddDbContext<BankContext>(options =>
+    options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<IToDoRepository, ToDoRepository>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
