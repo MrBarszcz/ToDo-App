@@ -2,7 +2,7 @@ using ToDo.Core.Entities;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 
-namespace Todo.Infrastructure.Data;
+namespace ToDo.Infrastructure.Data;
 
 public class BankContext : DbContext {
     public BankContext(DbContextOptions<BankContext> options) : base(options) {
