@@ -1,6 +1,7 @@
 services:
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
+    user: root
     container_name: todo_sqlserver
     ports:
       - "1433:1433"
@@ -8,7 +9,7 @@ services:
       - ACCEPT_EULA=Y
       - MSSQL_SA_PASSWORD=${MSSQL_SA_PASSWORD}
     volumes:
-      - mysql_data:/var/lib/mysql
+      - mssql_data:/var/opt/mssql/data
     networks:
       - todo_net
 
@@ -17,4 +18,4 @@ networks:
     driver: bridge
 
 volumes:
-  mysql_data:
+  mssql_data:
