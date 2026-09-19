@@ -1,0 +1,70 @@
+@model WebApp.ViewModels.CreateTodoViewModel
+
+@{
+    ViewData["Title"] = "Nova Tarefa";
+}
+
+<h2>Criar Nova Tarefa</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Priority">Priority</label>
+        <select asp-for="Priority" id="priority" name="priority">
+            <option value="postponable" selected>Adiável</option>
+            <option value="urgent">Urgente</option>
+            <option value="important">Importante</option>
+            <option value="urgentImportant">Urgente & Importante</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Status">Status</label>
+        <select asp-for="Status" id="status" name="status">
+            <option value="toDo" selected>A Fazer</option>
+            <option value="inProgress">Em Andamento</option>
+            <option value="pending">Pendente</option>
+            <option value="completed">Concluido</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>
+            <input type="checkbox" id="define-deadline">Definir um prazo?
+        </label>
+
+        <div class="deadline">
+            <label asp-for="DeadLineAt">Data para Conclusão:</label>
+            <input type="date" id="deadLine" name="deadLine">
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="labelDefineComplete">
+            <input type="checkbox" id="define-complete">Data da Finalização
+        </label>
+
+        <div class="complete">
+            <label asp-for="CompletedAt">Data da Finalização:</label>
+            <input type="date" id="complete" name="complete">
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

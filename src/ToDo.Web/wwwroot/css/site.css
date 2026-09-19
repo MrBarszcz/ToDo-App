@@ -29,3 +29,20 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+.deadline, .complete, .labelDefineComplete {
+  display: none;
+  margin-top: 10px;
+}
+
+.mb-3:has(#define-deadline:checked) .deadline {
+  display: block;
+}
+
+body:has(#status option[value="completed"]:checked) .labelDefineComplete {
+  display: block;
+}
+
+.mb-3:has(#define-complete:checked) .complete {
+  display: block;
+}
